@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "zlib-ts",
+  "description": "zlib, gzip and zip implementation in TypeScript",
+  "version": "0.1.0",
+  "keywords": [
+    "webaudio",
+    "convolver",
+    "effect",
+    "reverb"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Logue",
+    "email": "logue@hotmail.co.jp",
+    "url": "https://logue.dev/"
+  },
+  "homepage": "https://github.com/logue/zlib.ts",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:logue/zlib.ts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/logue/zlib.ts/issues"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/zlib.umd.js",
+  "module": "./dist/zlib.es.js",
+  "browser": "./dist/zlib.iffe.js",
+  "exports": {
+    ".": {
+      "import": "./dist/zlib.es.js",
+      "require": "./dist/zlib.umd.js"
+    }
+  },
+  "types": "./dist/zlib.d.ts",
+  "engines": {
+    "node": ">=16.17.0",
+    "yarn": ">=1.22.10"
+  },
+  "packageManager": "yarn@3.2.3",
+  "sideEffects": false,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && tsc --declaration --emitDeclarationOnly",
+    "build:clean": "rimraf dist",
+    "lint": "eslint . --fix --cache --cache-location ./node_modules/.vite/vite-plugin-eslint && prettier . --write",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@types/node": "^18.7.13",
+    "@typescript-eslint/eslint-plugin": "^5.35.1",
+    "@typescript-eslint/parser": "^5.35.1",
+    "eslint": "^8.23.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-import-resolver-typescript": "^3.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsdoc": "^39.3.6",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-tsdoc": "^0.2.16",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.7.4",
+    "vite": "^3.0.9",
+    "vite-plugin-banner": "^0.4.0",
+    "vite-plugin-checker": "^0.5.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,json,htm,html}": "eslint --fix --cache --cache-location ./node_modules/.vite/vite-plugin-eslint",
+    "*": "prettier -w -u"
+  },
+  "resolutions": {
+    "prettier": "^2.7.1"
+  }
+}
